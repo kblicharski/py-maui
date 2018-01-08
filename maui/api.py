@@ -4,6 +4,8 @@ from typing import Sequence, Tuple
 
 import requests
 
+from .graph import Graph
+
 spring_id = 71
 spring_id_legacy = 20178
 
@@ -44,3 +46,5 @@ for pair in pairings:
 
 pprint(courses)
 print(len(courses))
+
+# g = Graph(directed=True)
