@@ -1,0 +1,8 @@
+-r requirements.txt
+
+autopep8
+isort
+pip-review
+pycodestyle
+pytest
+pytest-cov
