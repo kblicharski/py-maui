@@ -4,7 +4,7 @@ from typing import Sequence, Tuple
 
 import requests
 
-from .graph import Graph
+from graph import Graph
 
 spring_id = 71
 spring_id_legacy = 20178
@@ -40,11 +40,18 @@ courses = set()
 replacements = ('(', ''), (')', ''), ('+', ','), ('?', ',')
 for pair in pairings:
     courses.add(pair[0])
-    pprint('{} => {}'.format(pair[0], pair[1]))
     for prereq in modify_string(pair[1], replacements).split(','):
         courses.add(prereq)
 
 pprint(courses)
 print(len(courses))
 
+connections = []
+for pair in pairings:
+    pprint('{} => {}'.format(pair[0], pair[1]))
+
 # g = Graph(directed=True)
+
+
+# 'ECE:5220 => (BIOS:4120?STAT:3510)+BME:5320+(CS:5110?ENGR:1300)'
+# ('BIOS:4120?', 'ECE:5220',
